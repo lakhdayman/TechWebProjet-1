@@ -1,0 +1,33 @@
+{% extends "empty_page.html" %}
+{% from "my_macro.html" import show_orders %}
+
+{% block title %}
+<title>Le coin de Namur -- Order Managment</title>
+{% endblock %}
+
+{% block content %}
+<div class="bloc">
+    <h2>Its your job now to manage our orders!</h2>
+</div>
+<div class="bloc">
+    <div>
+        <h3>Orders</h3>
+        <table>
+            <tr>
+                <th>Order ID</th>
+                <th>Client ID</th>
+                <th>Ordered Dishes</th>
+                <th>Order Price</th>
+                <th>Status</th>
+            </tr>
+            {% for order in orders %}
+                {% if order.status == "working"%}
+                    {{ show_orders(order.orderid, order.clientid, order.dishes, order.orderprice, order.status) }}
+                {% endif %} 
+            {% endfor %}
+        </table>
+    </div>
+</div>
+
+
+{% endblock %}

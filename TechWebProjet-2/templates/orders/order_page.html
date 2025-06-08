@@ -1,0 +1,93 @@
+{% extends "empty_page.html" %}
+{% from "my_macro.html" import show_menu_order %}
+
+{% block title %}
+<title>Le coin de Namur -- Order</title>
+{% endblock %}
+
+{% block content %}
+<div class="bloc">
+    <h2>Welcome to our Restaurant! Make your order now!</h2>
+</div>
+<div class="bloc">
+    <div>
+        <h3>Starters</h3>
+        <table>
+            <tr>
+                <th>Dish ID</th>
+                <th>Dish Name</th>
+                <th>Dish Type</th>
+                <th>Price</th>
+                <th>Order</th>
+            </tr>
+            {% for dish in menu %}
+                {% if dish.dishtype == "Starters"%}
+                    {{ show_menu_order(dish.dishid, dish.dishname, dish.dishtype, dish.price) }}
+                {% endif %}  
+            {% endfor %}
+        </table>
+    </div>
+
+    <div>
+        <h3>Main Dish</h3>
+        <table>
+            <tr>
+                <th>Dish ID</th>
+                <th>Dish Name</th>
+                <th>Dish Type</th>
+                <th>Price</th>
+                <th>Order</th>
+            </tr>
+            {% for dish in menu %}
+                {% if dish.dishtype == "Main Dish"%}
+                    {{ show_menu_order(dish.dishid, dish.dishname, dish.dishtype, dish.price) }}
+                {% endif %}  
+            {% endfor %}
+        </table>
+    </div>
+
+    <div>
+        <h3>Dessert</h3>
+        <table>
+            <tr>
+                <th>Dish ID</th>
+                <th>Dish Name</th>
+                <th>Dish Type</th>
+                <th>Price</th>
+                <th>Order</th>
+            </tr>
+            {% for dish in menu %}
+                {% if dish.dishtype == "Dessert"%}
+                    {{ show_menu_order(dish.dishid, dish.dishname, dish.dishtype, dish.price) }}
+                {% endif %}  
+            {% endfor %}
+        </table>
+    </div>
+
+    <div>
+        <h3>Drinks</h3>
+        <table>
+            <tr>
+                <th>Dish ID</th>
+                <th>Dish Name</th>
+                <th>Dish Type</th>
+                <th>Price</th>
+                <th>Order</th>
+            </tr>
+            {% for dish in menu %}
+                {% if dish.dishtype == "Drinks"%}
+                    {{ show_menu_order(dish.dishid, dish.dishname, dish.dishtype, dish.price) }} 
+                {% endif %}
+            {% endfor %}
+        </table>
+    </div>
+</div>
+<div class="bloc">
+    <form action="/orders/checkout" method="post">
+        <button class="btn" type="submit">Checkout</button>
+    </form>
+    <form action="/orders/cancel/order" method="post">
+        <button class="btn" type="submit">Cancel Order</button>
+    </form>
+</div>
+{% endblock %}

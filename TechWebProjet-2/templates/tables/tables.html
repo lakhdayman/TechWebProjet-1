@@ -1,0 +1,33 @@
+{% extends "empty_page.html" %}
+{% from "my_macro.html" import show_tables %}
+
+{% block title %}
+<title>Le coin de Namur -- Tables Managment</title>
+{% endblock %}
+
+{% block content %}
+<div class="bloc">
+    <h2>Manage our Tables here!</h2>
+</div>
+<div class="bloc">
+    <table>
+        <tr>
+            <th>Table ID</th>
+            <th>Client ID</th>
+            <th>Table Capacity</th>
+            <th>Day</th>
+            <th>Time</th>
+            <th>Available?</th>
+            <th>Change Availability</th>
+        </tr>
+        {% for table in tables %}
+            {{ show_tables(table.tableid, table.clientid, table.tablecapacity, table.day, table.time, table.available) }}
+        {% endfor %}
+    </table>
+</div>
+
+
+
+
+
+{% endblock %}

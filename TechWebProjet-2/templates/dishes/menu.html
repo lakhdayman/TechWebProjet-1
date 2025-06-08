@@ -1,0 +1,93 @@
+{% extends "empty_page.html" %}
+{% from "my_macro.html" import show_menu %}
+
+{% block title %}
+<title>Le coin de Namur -- Menu</title>
+{% endblock %}
+
+{% block content %}
+<div class="bloc">
+    <h2>Welcome to our Restaurant! Take a look at our Menu!</h2>
+</div>
+
+<div class="bloc">
+    <div>
+        <h3>Starters</h3>
+        <table>
+            <tr>
+                <th>Dish ID</th>
+                <th>Dish Name</th>
+                <th>Dish Type</th>
+                <th>Price</th>
+            </tr>
+            {% for dish in menu %}
+                {% if dish.dishtype == "Starters"%}
+                    {{ show_menu(dish.dishid, dish.dishname, dish.dishtype, dish.price) }}
+                {% endif %}  
+            {% endfor %}
+        </table>
+    </div>
+
+    <div>
+        <h3>Main Dish</h3>
+        <table>
+            <tr>
+                <th>Dish ID</th>
+                <th>Dish Name</th>
+                <th>Dish Type</th>
+                <th>Price</th>
+            </tr>
+            {% for dish in menu %}
+                {% if dish.dishtype == "Main Dish"%}
+                    {{ show_menu(dish.dishid, dish.dishname, dish.dishtype, dish.price) }}
+                {% endif %}  
+            {% endfor %}
+        </table>
+    </div>
+
+    <div>
+        <h3>Dessert</h3>
+        <table>
+            <tr>
+                <th>Dish ID</th>
+                <th>Dish Name</th>
+                <th>Dish Type</th>
+                <th>Price</th>
+            </tr>
+            {% for dish in menu %}
+                {% if dish.dishtype == "Dessert"%}
+                    {{ show_menu(dish.dishid, dish.dishname, dish.dishtype, dish.price) }}
+                {% endif %}  
+            {% endfor %}
+        </table>
+    </div>
+
+    <div>
+        <h3>Drinks</h3>
+        <table>
+            <tr>
+                <th>Dish ID</th>
+                <th>Dish Name</th>
+                <th>Dish Type</th>
+                <th>Price</th>
+            </tr>
+            {% for dish in menu %}
+                {% if dish.dishtype == "Drinks"%}
+                    {{ show_menu(dish.dishid, dish.dishname, dish.dishtype, dish.price) }}
+                {% endif %}  
+            {% endfor %}
+        </table>
+    </div>
+</div>
+
+
+{% if active_user.role == "admin" %}
+<div class="bloc">
+    <a class="btn" href="/menu/add/dish">Add a new Dish</a>
+    <a class="btn" href="/menu/remove/dish">Remove a Dish from the Menu</a>
+    <a class="btn" href="/menu/edit/dish">Edit a Dish from the Menu</a>
+</div>
+{% endif %}
+
+
+{% endblock %}

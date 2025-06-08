@@ -1,0 +1,56 @@
+{% extends "empty_page.html" %}
+
+{% block title %}
+<title>Le coin de Namur -- Book a Table</title>
+{% endblock %}
+
+{% block content %}
+<div class="bloc">
+    <h2>Welcome to our Restaurant! Fill the form to book a table!</h2>
+</div>
+<div class="bloc">
+    <form action="/table/book/table" method="post">
+        <div>
+            <label for="day">Day: </label>
+            <input type="text" id="day" name="day" placeholder="02/12/2035" />
+        </div>
+    
+        <div>
+            <label for="time">Time: </label>
+            <input type="text" id="time" name="time" placeholder="20h00" />
+        </div>
+    
+        <div>
+            <label for="people_count">For how many persons?: </label>
+            <input type="text" id="people_count" name="people_count" placeholder="5" />
+        </div>
+        <button class="btn" type="submit">Send Form!</button>
+    </form>
+</div>
+
+<div class="bloc">
+    <div class="info">
+        <button class="btn" id="prevBtn">Previous</button>
+        <h2 id="title"></h2>
+        <button class="btn" id="nextBtn">Next</button>
+    </div>
+    <table>
+        <thead>
+            <tr>
+                <th>Monday</th>
+                <th>Tuesday</th>
+                <th>Wednesday</th>
+                <th>Thursday</th>
+                <th>Friday</th>
+                <th>Saturday</th>
+                <th>Sunday</th>
+            </tr>
+        </thead>
+        <tbody id="calenderBloc"></tbody>
+    </table>
+</div>
+
+<script src="/static/script.js"></script>
+
+
+{% endblock %}

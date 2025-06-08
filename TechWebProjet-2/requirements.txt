@@ -1,0 +1,6 @@
+pydantic
+uvicorn
+fastapi
+jinja2
+fastapi-login
+sqlalchemy

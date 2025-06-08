@@ -1,0 +1,36 @@
+{% extends "empty_page.html" %}
+
+{% block title %}
+<title>Le coin de Namur -- New User</title>
+{% endblock %}
+
+{% block content %}
+<div class="bloc">
+    <h2>Enter your information to create an account!</h2>
+</div>
+<div class="bloc">
+    <form action="/users/new/user" method="post">
+        <div>
+            <label for="users_firstname">Firstname</label>
+            <input type="text" id="users_firstname" name="firstname" placeholder="firstname"/>
+        </div>
+
+        <div>
+            <label for="users_name">Name</label>
+            <input type="text" id="users_name" name="name" placeholder="name"/>
+        </div>
+
+        <div>
+            <label for="users_email">Email</label>
+            <input type="text" id="users_email" name="email" placeholder="yourname@email.com"/>
+        </div>
+
+        <div>
+            <label for="users_password">Password</label>
+            <input type="password" id="users_password" name="password" placeholder="123456789"/>
+        </div>
+
+        <button class="btn" type="submit">Create Account</button>
+    </form>
+</div>
+{% endblock %}

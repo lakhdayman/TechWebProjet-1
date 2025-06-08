@@ -1,0 +1,133 @@
+{% macro show_user(email, name, firstname) %}
+<tr>
+    <td>{{ email }}</td>
+    
+    <td>
+        {{ name }}
+    </td>
+
+    <td>
+        {{ firstname }}
+    </td>
+</tr>
+{% endmacro %}
+
+{% macro show_menu(dishid, dishname, dishtype, price) %}
+    <tr>
+        <td>
+            {{ dishid }}
+        </td>
+        <td>
+            {{ dishname }}
+        </td>
+        <td>
+            {{ dishtype }}
+        </td>
+        <td>
+            {{ price }}
+        </td>
+    </tr>
+{% endmacro %}
+
+{% macro show_menu_order(dishid, dishname, dishtype, price) %}
+    <tr>
+        <td>
+            {{ dishid }}
+        </td>
+        <td>
+            {{ dishname }}
+        </td>
+        <td>
+            {{ dishtype }}
+        </td>
+        <td>
+            {{ price }}
+        </td>
+        <td>
+            <form action="/orders/add/basket" method="post">
+                <input type="hidden"  id="dishid" name="dishid" value="{{ dishid }}"/>
+                <button class="btn" type="submit">Add to basket</button>
+            </form>
+            <form action="/orders/remove/basket" method="post">
+                <input type="hidden"  id="dishid" name="dishid" value="{{ dishid }}"/>
+                <button class="btn" type="submit">Remove from basket</button>
+            </form>
+        </td>
+    </tr>
+{% endmacro %}
+
+{% macro show_orders(orderid, clientid, dishes, orderprice, status) %}
+    <tr>
+        <td>
+            {{ orderid }}
+        </td>
+        <td>
+            {{ clientid }}
+        </td>
+        <td>
+            {{ dishes }}
+        </td>
+        <td>
+            {{ orderprice }}
+        </td>
+        <td>
+            {{ status }}
+        </td>
+        <td>
+            <form action="/orders/complete" method="post">
+                <input type="hidden"  id="orderid" name="orderid" value="{{ orderid }}"/>
+                <button class="btn" type="submit">Mark as complete</button>
+            </form>
+        </td>
+    </tr>
+{% endmacro %}
+
+{% macro show_my_orders(orderid, clientid, dishes, orderprice, status) %}
+    <tr>
+        <td>
+            {{ orderid }}
+        </td>
+        <td>
+            {{ clientid }}
+        </td>
+        <td>
+            {{ dishes }}
+        </td>
+        <td>
+            {{ orderprice }}
+        </td>
+        <td>
+            {{ status }}
+        </td>
+
+    </tr>
+{% endmacro %}
+
+{% macro show_tables(tableid, clientid, tablecapacity, day, time, available) %}
+    <tr>
+        <td>
+            {{ tableid }}
+        </td>
+        <td>
+            {{ clientid }}
+        </td>
+        <td>
+            {{ tablecapacity }}
+        </td>
+        <td>
+            {{ day }}
+        </td>
+        <td>
+            {{ time }}
+        </td>
+        <td>
+            {{ available }}
+        </td>
+        <td>
+            <form action="/table/change/availability" method="post">
+                <input type="hidden"  id="tableid" name="tableid" value="{{ tableid }}"/>
+                <button class="btn" type="submit">Change Availability</button>
+            </form>
+        </td>
+    </tr>
+{% endmacro %}

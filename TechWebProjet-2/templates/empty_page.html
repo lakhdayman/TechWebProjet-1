@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    {% block title %}
+    <title>Le coin de Namur</title>
+    {% endblock %}
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/static/style.css">
+
+</head>
+
+<body>
+    <header>
+        <div class="header-bloc">
+            <h1>Le coin de Namur</h1>
+            <nav>
+                <a href="/users/home">Home |</a>
+                <a href="/menu/all/dishes">Menu |</a>
+                <a href="/table/book/table">Book a Table |</a>
+                <a href="/orders/order">Order |</a>
+                <a href="/users/login">Login |</a>
+                <a href="/users/profile">Profile</a>
+            </nav>
+        </div>
+    
+    </header>
+
+    {% block content %}
+    {% endblock %}
+
+    <footer>
+        <p>&copy; 2024 Le coin de Namur. All rights reserved.</p>
+    </footer>
+</body>
+    <script src="/static/script.js"></script>
+</html>

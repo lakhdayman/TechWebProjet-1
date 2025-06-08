@@ -1,0 +1,41 @@
+{% extends "empty_page.html" %}
+
+{% block title %}
+<title>Burger Home -- Home</title>
+{% endblock %}
+
+{% block content %}
+<div class="container">
+<div>
+    <h1>Welcome to Burger Home</h1>
+</div>
+    <div class="bloc">
+        <h3>Who are we?</h3>
+        <p>Burger Home is your ultimate destination for delicious burgers and comfort food. Our restaurant offers a wide variety of gourmet burgers, fresh sides, and refreshing drinks. Perfect for a quick lunch or a family dinner, we're waiting to serve you the best burgers in town!</p>
+    </div>
+    <div class="bloc">
+        <h3>You have something to tell us?</h3>
+        <p>Don't hesitate, leave us your feedback!</p>
+
+        <form action="/feedbacks/feedback" method="post">
+
+            <div class="form-group">
+                <label for="users_email">Email:</label>
+                <input type="text" id="users_email" name="email" placeholder="yourname@email.com"/>
+            </div>
+
+            <div class="form-group">
+                <label for="users_password">Password: </label>
+                <input type="password" id="users_password" name="password" placeholder="123456789"/>
+            </div>
+        
+            <div class="form-group">
+                <label for="users_feedback">Feedback:</label>
+                <input type="text" id="users_feedback" name="users_feedback" placeholder="I love your Classic Burger!"/>
+            </div>
+        
+            <button class="btn" type="submit">Submit Feedback</button>
+        </form>
+    </div>
+</div>
+{% endblock %}
